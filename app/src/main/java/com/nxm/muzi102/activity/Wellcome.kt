@@ -59,4 +59,5 @@ class Wellcome : BaseActivity() {
             myThread.interrupt()
         }
     }
+    //明天会更好
 }
