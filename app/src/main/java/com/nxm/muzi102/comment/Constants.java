@@ -1,10 +1,11 @@
 package com.nxm.muzi102.comment;
 
+import android.Manifest;
+
 /**
  * ******************************************************************************************************************
  * 修改日期                          修改人             任务名称                 功能或Bug描述
  * 2017年12月18日22:07:15            xmz                                      沉浸标题栏布局容器
- *
  */
 
 public class Constants {
@@ -57,5 +58,11 @@ public class Constants {
 
     public static final String N = "N";
     public static final String Y = "Y";
+    public static final String[] PERMISSION = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_PHONE_STATE
+    };
 
 }

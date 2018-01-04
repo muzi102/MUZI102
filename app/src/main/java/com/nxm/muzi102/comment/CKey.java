@@ -29,6 +29,7 @@ public class CKey {
     public static Integer time = 60;
 
     public static int avMinutes = 0;
+    public static int ZERO = 0;
 
     /**
      * 请求的用户信息
@@ -56,7 +57,7 @@ public class CKey {
     public static String userId = "userId";
 
     public static String pres = "pres";
-    public static String myRkAccounts= "myRkAccounts";
-    public static String groupUrl= "groupUrl";
-    public static String custmerRKAccounts="custmerRKAccounts";
+    public static String myRkAccounts = "myRkAccounts";
+    public static String groupUrl = "groupUrl";
+    public static String custmerRKAccounts = "custmerRKAccounts";
 }

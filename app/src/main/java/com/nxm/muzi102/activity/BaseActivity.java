@@ -58,4 +58,9 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    //跳转到主界面
+    public void goToLoginActivity() {
+
+    }
 }
