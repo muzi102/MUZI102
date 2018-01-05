@@ -1,5 +1,6 @@
 package com.nxm.muzi102.activity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -13,6 +14,7 @@ import com.nxm.muzi102.listener.ActivityInitListener;
  * *******************************************************************************************
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月1日20:13:55          lzx              Activity 基类
+ * *******************************************************************************************
  */
 public abstract class BaseActivity extends FragmentActivity implements ActivityInitListener {
     @Override
@@ -61,6 +63,7 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
 
     //跳转到主界面
     public void goToLoginActivity() {
-
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

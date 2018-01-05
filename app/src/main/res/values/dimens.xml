@@ -1,3 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="px2">2px</dimen>
+    <dimen name="px3">3px</dimen>
+    <dimen name="px16">12px</dimen>
+    <dimen name="px26">26px</dimen>
+    <dimen name="px32">32px</dimen>
+    <dimen name="px36">36px</dimen>
+    <dimen name="px39">39px</dimen>
+    <dimen name="px45">45px</dimen>
+    <dimen name="px48">48px</dimen>
+    <dimen name="px72">72px</dimen>
+    <dimen name="px96">96px</dimen>
+    <dimen name="px123">123px</dimen>
+    <dimen name="px135">135px</dimen>
+    <dimen name="px145">145px</dimen>
+    <dimen name="px162">162px</dimen>
 </resources>

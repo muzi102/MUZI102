@@ -7,4 +7,14 @@
     <string name="quit">退出</string>
     <string name="sp_key">muzi102</string>
     <string name="noPermissions">没有获取到主要权限，无法运行应用</string>
+
+    <!--LoginActivity-->
+    <string name="account">账号</string>
+    <string name="password">登录密码</string>
+    <string name="forgetPsw">忘记密码？</string>
+    <string name="login_btn_login">登 录</string>
+    <string name="login_btn_register">免费注册</string>
+    <string name="string_1">手机号码/会员名称</string>
+    <string name="string_2">请输入密码</string>
+    <string name="login_title">账号登录</string>
 </resources>

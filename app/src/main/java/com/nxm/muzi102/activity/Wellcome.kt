@@ -74,12 +74,15 @@ class Wellcome : BaseActivity() {
         }
     }
 
-    //跳转到主界面
+    /**
+     * 跳转到主界面
+     */
     private fun gotoMainActivity() {
         var intent = Intent()
         intent.setClass(this@Wellcome, MainActivity::class.java)
         startActivity(intent)
     }
+
 
     /**
      * 检查权限
@@ -90,14 +93,24 @@ class Wellcome : BaseActivity() {
             checkPermission = CheckPermission(this, this)
             if (checkPermission.checkPermission(this, Constants.PERMISSION)) {
                 startPermissionActivity()
+            } else {
+                goToLoginActivity()
             }
+        } else {
+            goToLoginActivity()
         }
     }
 
+    /**
+     * 申请权限界面
+     */
     private fun startPermissionActivity() {
         PermissionActivity.startActivityForResult(this, REQUEST_CODE, *Constants.PERMISSION)
     }
 
+    /**
+     * result回调
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         //权限申请回调
@@ -106,7 +119,8 @@ class Wellcome : BaseActivity() {
             System.exit(CKey.ZERO)
         } else {
             //权限足够跳转到主页面
-            gotoMainActivity()
+//            gotoMainActivity()
+            goToLoginActivity()
         }
     }
 }

@@ -6,4 +6,9 @@
 
     <!-- 通用灰色 -->
     <color name="common_gray">#bbbbbb</color>
+    <color name="main_text">#000000</color>
+    <color name="gray_text">#cccccc</color>
+    <color name="gray_bg">#eeeeee</color>
+    <color name="gray_bg_1">#f5f5f5</color>
+    <color name="main_theme">#0066ff</color>
 </resources>

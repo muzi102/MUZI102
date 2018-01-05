@@ -2,15 +2,6 @@ package com.nxm.muzi102.activity
 
 import android.os.Bundle
 import com.nxm.muzi102.R
-import com.nxm.muzi102.base.BuzProfession
-import com.nxm.muzi102.https.httpUtils.HttpHelper.post
-import com.nxm.muzi102.https.httpUtils.JsonDataToData
-import com.nxm.muzi102.https.httpUtils.RequestListener
-import com.nxm.muzi102.utils.LogUtil
-import com.squareup.okhttp.Request
-import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
-import java.util.ArrayList
 
 /**
  * **************************************************************************************************************
