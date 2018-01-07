@@ -44,6 +44,7 @@
         <item name="android:textColor">@color/gray_text</item>
         <item name="android:textSize">@dimen/px48</item>
         <item name="android:background">@null</item>
+        <item name="android:textCursorDrawable">@null</item>
         <item name="android:layout_centerInParent">true</item>
     </style>
 
@@ -54,4 +55,21 @@
         <item name="android:layout_marginRight">@dimen/px48</item>
         <item name="android:layout_marginLeft">@dimen/px48</item>
     </style>
+    <!--通用-->
+    <style name="convention_item">
+        <item name="android:layout_height">@dimen/px145</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="re_bg">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/gray_bg_1</item>
+    </style>
+
+    <style name="text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
 </resources>

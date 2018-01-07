@@ -17,4 +17,10 @@
     <string name="string_1">手机号码/会员名称</string>
     <string name="string_2">请输入密码</string>
     <string name="login_title">账号登录</string>
+    <!--RegisterActivity-->
+    <string name="reginster_title">手机验证</string>
+    <string name="reginster_1">国家/地区  中国大陆(+86)</string>
+    <string name="reginster_2">为了您的方便登录及账号安全请填写一个手机号码完成注册</string>
+    <string name="reginster_3">手机号码</string>
 </resources>
+

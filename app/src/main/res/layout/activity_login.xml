@@ -16,14 +16,12 @@
 
     <RelativeLayout
         android:id="@+id/relay1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px145"
+        style="@style/convention_item"
         android:layout_below="@id/view_1">
 
         <TextView
             android:id="@+id/login_tv_account"
             style="@style/login_account"
-
             android:text="@string/account" />
 
         <EditText
@@ -40,8 +38,7 @@
 
     <RelativeLayout
         android:id="@+id/relay2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px145"
+        style="@style/convention_item"
         android:layout_below="@id/view_2">
 
         <TextView
@@ -61,10 +58,8 @@
         android:layout_below="@id/relay2"></View>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/view_3"
-        android:background="@color/gray_bg_1">
+        style="@style/re_bg"
+        android:layout_below="@id/view_3">
 
         <TextView
             android:id="@+id/login_forgetPsw"

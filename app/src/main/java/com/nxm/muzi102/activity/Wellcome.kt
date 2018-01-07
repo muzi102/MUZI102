@@ -16,7 +16,6 @@ import com.nxm.muzi102.utils.ToastUtil
  * *******************************************************************************************
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月1日20:14:10            lzx              Activity 基类
- * *******************************************************************************************
  */
 class Wellcome : BaseActivity() {
     //声明变量
@@ -120,7 +119,7 @@ class Wellcome : BaseActivity() {
             System.exit(CKey.ZERO)
         } else {
             //权限足够跳转到主页面
-            //gotoMainActivity()
+//            gotoMainActivity()
             goToLoginActivity()
         }
     }
