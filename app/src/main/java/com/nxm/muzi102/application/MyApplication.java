@@ -8,10 +8,19 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * 作者： guang 时间： 2015/12/24.
+ * *******************************************************************************************
+ * 修改日期                         修改人             任务名称                 功能或Bug描述
+ * 2018年1月7日15:16:42             lzx              MyApplication类创建
+ * *******************************************************************************************
  */
 public class MyApplication extends Application {
     public static ArrayMap<String, Activity> map = new ArrayMap();
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
     /**
      * 关闭所有的activity
      */
@@ -22,10 +31,4 @@ public class MyApplication extends Application {
             ((Activity) entry.getValue()).finish();
         }
     }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
 }
