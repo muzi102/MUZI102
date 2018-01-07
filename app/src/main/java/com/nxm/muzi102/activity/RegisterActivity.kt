@@ -6,11 +6,15 @@ import android.view.View
 import com.nxm.muzi102.R
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.titlebar.*
-
+/**
+ * *******************************************************************************************
+ * 修改日期                         修改人             任务名称                 功能或Bug描述
+ * 2018年1月8日00:52:24             lzx              RegisterActivity布局界面
+ * *******************************************************************************************
+ */
 class RegisterActivity : BaseActivity(), View.OnClickListener {
-    override fun onClick(p0: View?) {
-        var mIntent: Intent = Intent()
-    }
+    var mIntent: Intent = Intent()
+
 
     override fun getContentView(): Int {
         return R.layout.activity_register
@@ -21,7 +25,15 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
         reginster_tv_agreement.setOnClickListener(this)
     }
 
-    private fun goToVerifyActivity() {
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.reginster_tv_agreement ->
+                goToVerifyActivity()
+        }
+    }
 
+    private fun goToVerifyActivity() {
+        mIntent.setClass(this@RegisterActivity, VerifyActivityActivity::class.java)
+        startActivity(mIntent)
     }
 }
