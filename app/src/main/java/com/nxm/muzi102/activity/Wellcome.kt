@@ -75,6 +75,11 @@ class Wellcome : BaseActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+    }
+
     /**
      * 跳转到主界面
      */
