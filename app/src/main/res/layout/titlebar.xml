@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.nxm.muzi102.utils.UITitleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/main_theme"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/px123">
+    android:layout_height="@dimen/px195">
 
-    <TextView
-        android:id="@+id/titlebar_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="标题"
-        android:textColor="@color/main_text"
-        android:textSize="@dimen/px48" />
+    <RelativeLayout
 
-    <ImageView
-        android:id="@+id/titlebar_igv_back"
-        android:layout_width="@dimen/px26"
-        android:layout_height="@dimen/px48"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/px48"
-        android:src="@drawable/back" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/px72">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/titlebar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="标题"
+            android:textColor="@color/main_text"
+            android:textSize="@dimen/px48" />
+
+        <ImageView
+            android:id="@+id/titlebar_igv_back"
+            android:layout_width="@dimen/px26"
+            android:layout_height="@dimen/px48"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px48"
+            android:src="@drawable/back" />
+    </RelativeLayout>
+</com.nxm.muzi102.utils.UITitleLayout>

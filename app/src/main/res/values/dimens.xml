@@ -15,6 +15,8 @@
     <dimen name="px135">135px</dimen>
     <dimen name="px145">145px</dimen>
     <dimen name="px162">162px</dimen>
+    <dimen name="px195">195px</dimen>
     <dimen name="px252">252px</dimen>
     <dimen name="px300">300px</dimen>
+
 </resources>
