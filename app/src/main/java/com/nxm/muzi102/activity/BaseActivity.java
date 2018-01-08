@@ -61,7 +61,7 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
         super.onDestroy();
     }
 
-    //跳转到主界面
+    //跳转到登录界面
     public void goToLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
