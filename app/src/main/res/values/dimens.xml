@@ -17,4 +17,10 @@
     <dimen name="px162">162px</dimen>
     <dimen name="px252">252px</dimen>
     <dimen name="px300">300px</dimen>
+
+    <!--textsize:推荐使用12sp、14sp、18sp、22sp作为字体设置的大小-->
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_22">22sp</dimen>
 </resources>
