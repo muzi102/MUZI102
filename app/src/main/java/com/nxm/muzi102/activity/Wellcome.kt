@@ -75,6 +75,11 @@ class Wellcome : BaseActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+    }
+
     /**
      * 跳转到主界面
      */
@@ -95,10 +100,10 @@ class Wellcome : BaseActivity() {
             if (checkPermission.checkPermission(this, Constants.PERMISSION)) {
                 startPermissionActivity()
             } else {
-                goToLoginActivity()
+                goLoginActivity()
             }
         } else {
-            goToLoginActivity()
+            goLoginActivity()
         }
     }
 
@@ -121,7 +126,15 @@ class Wellcome : BaseActivity() {
         } else {
             //权限足够跳转到主页面
 //            gotoMainActivity()
-            goToLoginActivity()
+            goLoginActivity()
         }
+    }
+
+    /**
+     * 跳转到页面并且结束
+     */
+    private fun goLoginActivity() {
+        goToLoginActivity()
+        finish()
     }
 }
