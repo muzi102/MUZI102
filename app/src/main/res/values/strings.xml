@@ -29,5 +29,11 @@
     <string name="verify_phone">00000000000</string>
     <string name="verify_checkcode">验证码</string>
     <string name="verify_next">下 一 步</string>
+    <string name="diolog_cancel">取 消</string>
+    <string name="dialog_confirm">确 定</string>
+    <!--AccountInfoActivity 设置账号信息-->
+    <string name="accountInfo_title">设置账号信息</string>
+    <string name="accountInfo_connent">密码由6-20位英文字母、数字或符号组成</string>
+    <string name="accountInfo_connetn2">1.会员名可用于账号登录\n2.推荐5-25个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
 </resources>
 

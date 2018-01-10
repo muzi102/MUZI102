@@ -18,4 +18,5 @@ public interface ActivityInitListener {
      * 控件初始化后执行
      */
     void onViewsDidLoad(Bundle savedInstanceState);
+
 }

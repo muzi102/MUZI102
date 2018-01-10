@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.nxm.muzi102.utils.UITitleLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/main_theme"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/px195">
+    android:layout_height="@dimen/px123"
+    android:background="@color/colorWhite">
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/px72">
+        >
 
         <TextView
             android:id="@+id/titlebar_title"
@@ -27,4 +26,4 @@
             android:layout_marginLeft="@dimen/px48"
             android:src="@drawable/back" />
     </RelativeLayout>
-</com.nxm.muzi102.utils.UITitleLayout>
+</LinearLayout>

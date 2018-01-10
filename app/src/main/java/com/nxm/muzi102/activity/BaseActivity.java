@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 
+import com.githang.statusbar.StatusBarCompat;
+import com.nxm.muzi102.R;
 import com.nxm.muzi102.listener.ActivityInitListener;
 
 /**
@@ -17,6 +19,8 @@ import com.nxm.muzi102.listener.ActivityInitListener;
  * *******************************************************************************************
  */
 public abstract class BaseActivity extends FragmentActivity implements ActivityInitListener {
+    //受保护的对象
+    protected Intent mIntent;
     @Override
     public Resources getResources() {
         Resources resources = super.getResources();
@@ -33,6 +37,7 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        mIntent = new Intent();
         try {
             setContentView(getContentView());
             onViewsDidLoad(savedInstanceState);
@@ -62,7 +67,7 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
     }
 
     //跳转到登录界面
-    public void goToLoginActivity() {
+    protected void goToLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }

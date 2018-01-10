@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nxm.muzi102.activity.AccountInfoActivity">
+
+    <include
+        android:id="@+id/accountInfo"
+        layout="@layout/titlebar"></include>
+
+    <View
+        android:id="@+id/accountInfo_1"
+        style="@style/interval_16"
+        android:layout_height="@dimen/px72"
+        android:layout_below="@id/accountInfo"></View>
+
+    <RelativeLayout
+        android:id="@+id/accountInfo_2"
+        style="@style/convention_item"
+        android:layout_below="@id/accountInfo_1">
+
+        <TextView
+            style="@style/login_account"
+            android:text="@string/password" />
+
+        <EditText
+            android:id="@+id/accountInfo_password"
+            style="@style/login_account1"
+            android:hint="@string/string_2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/accountInfo_3"
+        style="@style/interval_16"
+        android:layout_height="@dimen/px195"
+        android:layout_below="@id/accountInfo_2">
+
+        <TextView
+            style="@style/wh_ww"
+            android:layout_marginLeft="@dimen/px48"
+            android:layout_marginTop="@dimen/px48"
+            android:text="@string/accountInfo_connent"
+            android:textSize="@dimen/px48" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/accountInfo_4"
+        style="@style/convention_item"
+        android:layout_below="@id/accountInfo_3">
+
+        <TextView
+            style="@style/login_account"
+            android:text="会员名" />
+
+        <EditText
+            android:id="@+id/accountInfo_name"
+            style="@style/login_account1"
+            android:hint="5-20个字符" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/accountInfo_5"
+        style="@style/interval_2"
+        android:layout_below="@id/accountInfo_4"></View>
+
+    <RelativeLayout
+        android:id="@+id/accountInfo_6"
+        style="@style/re_bg"
+        android:layout_below="@id/accountInfo_5">
+
+        <TextView
+            android:id="@+id/accountInfo_7"
+            style="@style/wh_ww"
+            android:layout_marginLeft="@dimen/px48"
+            android:layout_marginRight="@dimen/px48"
+            android:layout_marginTop="@dimen/px48"
+            android:text="@string/accountInfo_connetn2"
+            android:textSize="@dimen/px36" />
+
+        <Button
+            android:id="@+id/accountInfo_btn_login"
+            style="@style/login_btn_login"
+            android:layout_below="@id/accountInfo_7"
+            android:layout_marginTop="@dimen/px96"
+            android:background="@color/main_theme"
+            android:text="@string/dialog_confirm"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

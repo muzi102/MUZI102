@@ -1,8 +1,8 @@
 package com.nxm.muzi102.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.titlebar.*
@@ -15,20 +15,34 @@ import kotlinx.android.synthetic.main.titlebar.*
  * *******************************************************************************************
  */
 class LoginActivity : BaseActivity(), View.OnClickListener {
-    private var mIntent: Intent = Intent()
     override fun getContentView(): Int {
         return R.layout.activity_login
     }
 
     override fun onViewsDidLoad(savedInstanceState: Bundle?) {
-        titlebar_title.setText(getString(R.string.login_title))
+        initData()
         initOnClick()
     }
 
+    /**
+     * 初始化参数
+     */
+    private fun initData() {
+        //设置状态栏背景和字体颜色
+        StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
+        titlebar_title.setText(getString(R.string.login_title))
+    }
+
+    /**
+     * 设置点击事件
+     */
     private fun initOnClick() {
         login_btn_register.setOnClickListener(this)
     }
 
+    /**
+     * 点击事件逻辑
+     */
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.login_btn_register ->
@@ -36,6 +50,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * 跳转到注册页面
+     */
     private fun goToRegister() {
         mIntent.setClass(this@LoginActivity, RegisterActivity::class.java)
         startActivity(mIntent)

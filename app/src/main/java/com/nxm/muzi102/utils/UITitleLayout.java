@@ -1,6 +1,5 @@
 package com.nxm.muzi102.utils;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -9,7 +8,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.nxm.muzi102.R;

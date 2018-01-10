@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.comment.CKey
 import com.nxm.muzi102.comment.Constants
@@ -43,6 +44,8 @@ class Wellcome : BaseActivity() {
      * 初始化参数
      */
     private fun initData() {
+        //设置状态栏背景和字体颜色
+        StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
         //初始化myThread
         myThread = object : Thread() {
             override fun run() {

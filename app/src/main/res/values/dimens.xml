@@ -1,5 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="px0">0px</dimen>
     <dimen name="px2">2px</dimen>
     <dimen name="px3">3px</dimen>
     <dimen name="px16">12px</dimen>
@@ -18,6 +19,8 @@
     <dimen name="px195">195px</dimen>
     <dimen name="px252">252px</dimen>
     <dimen name="px300">300px</dimen>
+    <dimen name="px320">320px</dimen>
+    <dimen name="px900">900px</dimen>
 
     <!--textsize:推荐使用12sp、14sp、18sp、22sp作为字体设置的大小-->
     <dimen name="text_12">12sp</dimen>

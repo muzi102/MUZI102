@@ -12,8 +12,8 @@
     <RelativeLayout
         android:id="@+id/reginster_relay1"
         style="@style/convention_item"
-        android:background="@color/gray_bg"
-        android:layout_below="@id/reginster_layout1">
+        android:layout_below="@id/reginster_layout1"
+        android:background="@color/gray_bg">
 
         <TextView
             style="@style/login_account"
@@ -70,25 +70,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/px48"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px48">
 
             <TextView
-                style="@style/text"
+                style="@style/wh_ww"
                 android:text="继续操作即视为同意" />
 
             <TextView
                 android:id="@+id/reginster_tv_agreement"
-                style="@style/text"
+                style="@style/wh_ww"
                 android:text="muzi102服务协议"
                 android:textColor="@android:color/holo_red_light" />
 
             <TextView
-                style="@style/text"
+                style="@style/wh_ww"
                 android:text="且" />
 
             <TextView
-                style="@style/text"
+                style="@style/wh_ww"
                 android:text="隐私保密协议"
                 android:textColor="@android:color/holo_red_light" />
         </LinearLayout>

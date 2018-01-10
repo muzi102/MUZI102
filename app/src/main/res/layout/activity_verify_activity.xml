@@ -84,7 +84,7 @@
         android:layout_below="@id/view_3">
 
         <Button
-            android:id="@+id/login_btn_login"
+            android:id="@+id/verify_next"
             style="@style/login_btn_login"
             android:layout_marginTop="@dimen/px96"
             android:background="@color/bg_cehngse"
