@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nxm.muzi102.activity.RegisterActivity">
+    tools:context="com.nxm.muzi102.activity.register.RegisterActivity">
 
     <include
         android:id="@+id/reginster_layout1"
@@ -47,6 +47,7 @@
             android:text="@string/reginster_3" />
 
         <EditText
+            android:id="@+id/reginster_et_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -67,9 +68,58 @@
         style="@style/re_bg"
         android:layout_below="@id/view_3">
 
+        <RelativeLayout
+            android:id="@+id/reginster_relay5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px129"
+            android:layout_marginTop="@dimen/px72">
+
+            <com.nxm.muzi102.view.VerificationSeekBar
+                android:id="@+id/reginster_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px129"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_forgotpassword_seekbar"
+                android:thumb="@drawable/seekbart_humb"
+                android:thumbOffset="@dimen/px0" />
+
+            <TextView
+                android:id="@+id/reginster_text_slide"
+                style="@style/wh_ww"
+                android:layout_centerInParent="true"
+                android:text="@string/reginster_text_slide" />
+        </RelativeLayout>
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/reginster_relay5"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/px129">-->
+
+        <!--<TextView-->
+        <!--style="@style/wh_mm"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:text="滑动验证" />-->
+
+        <!--<com.nxm.muzi102.view.VerificationSeekBar-->
+        <!--android:id="@+id/reginster_seekbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/px129"-->
+        <!--android:layout_marginTop="@dimen/px72"-->
+        <!--android:max="100"-->
+        <!--android:padding="1dp"-->
+        <!--android:progress="0"-->
+        <!--android:progressDrawable="@drawable/bg_forgotpassword_seekbar"-->
+        <!--android:thumb="@drawable/seekbarthumb"-->
+        <!--android:thumbOffset="-1dp" />-->
+        <!--</RelativeLayout>-->
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/reginster_relay5"
+            android:layout_marginTop="@dimen/px48"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/px48">
 
@@ -80,8 +130,9 @@
             <TextView
                 android:id="@+id/reginster_tv_agreement"
                 style="@style/wh_ww"
+
                 android:text="muzi102服务协议"
-                android:textColor="@android:color/holo_red_light" />
+                android:textColor="@color/main_theme" />
 
             <TextView
                 style="@style/wh_ww"
@@ -90,7 +141,7 @@
             <TextView
                 style="@style/wh_ww"
                 android:text="隐私保密协议"
-                android:textColor="@android:color/holo_red_light" />
+                android:textColor="@color/main_theme" />
         </LinearLayout>
 
     </RelativeLayout>

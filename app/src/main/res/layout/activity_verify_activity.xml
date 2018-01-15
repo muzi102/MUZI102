@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nxm.muzi102.activity.VerifyActivityActivity">
+    tools:context="com.nxm.muzi102.activity.register.VerifyActivityActivity">
 
     <include
         android:id="@+id/layout1"
@@ -87,7 +87,7 @@
             android:id="@+id/verify_next"
             style="@style/login_btn_login"
             android:layout_marginTop="@dimen/px96"
-            android:background="@color/bg_cehngse"
+            android:background="@color/main_theme"
             android:text="@string/verify_next"
             android:textColor="@color/gray_text" />
     </RelativeLayout>

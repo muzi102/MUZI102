@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
+import com.nxm.muzi102.activity.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.titlebar.*
 
