@@ -6,8 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/titlebar_title"
@@ -18,12 +17,20 @@
             android:textColor="@color/main_text"
             android:textSize="@dimen/px48" />
 
-        <ImageView
-            android:id="@+id/titlebar_igv_back"
-            android:layout_width="@dimen/px26"
-            android:layout_height="@dimen/px48"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/px48"
-            android:src="@drawable/back" />
+        <RelativeLayout
+            android:id="@+id/titlebar_back"
+            android:layout_width="@dimen/px123"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/titlebar_igv_back"
+                android:layout_width="@dimen/px26"
+                android:layout_height="@dimen/px48"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px48"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
 </LinearLayout>

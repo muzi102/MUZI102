@@ -1,4 +1,4 @@
-package com.nxm.muzi102.utils;
+package com.nxm.muzi102.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,8 @@ import com.nxm.muzi102.comment.Constants;
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月8日22:46:20             LZX                                      沉浸标题栏布局容器
  * 2018年1月8日22:46:20             LZX                                      修改状态栏透明
- *
+ * 2018年1月9日09:32:02            LZX                                       修改状态栏透明（兼容5.0以上）
+ * <p>
  * ******************************************************************************************************************
  */
 public class UITitleLayout extends LinearLayout {
@@ -90,5 +91,13 @@ public class UITitleLayout extends LinearLayout {
             //设置状态栏颜色为透明
             ((Activity) context).getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+//        在代码中设置，判断当sdk大于等于5.0时，执行以下代码
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.TRANSPARENT);
+//        }
     }
 }

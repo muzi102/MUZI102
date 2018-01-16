@@ -1,14 +1,16 @@
 package com.nxm.muzi102.activity.register
 
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Message
 import android.view.View
 import android.widget.SeekBar
-import android.widget.Toast
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
-import com.nxm.muzi102.utils.LogUtil
+import com.nxm.muzi102.utils.CKey
+import com.nxm.muzi102.utils.CommonUtils
+import com.nxm.muzi102.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.titlebar.*
 
@@ -16,10 +18,10 @@ import kotlinx.android.synthetic.main.titlebar.*
  * *******************************************************************************************
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月8日00:52:24             lzx              RegisterActivity布局界面
+ * 2018年1月16日10:51:18            lzx              添加手机号码验证
  * *******************************************************************************************
  */
 class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
-    private var phone: String? = null
     override fun getContentView(): Int {
         return R.layout.activity_register
     }
@@ -35,22 +37,15 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
     //初始化监听
     private fun initListener() {
         reginster_tv_agreement.setOnClickListener(this)
+        titlebar_back.setOnClickListener(this)
         reginster_seekbar.setOnSeekBarChangeListener(this)
     }
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
-            R.id.reginster_tv_agreement ->
-                goToVerifyActivity()
+            R.id.titlebar_back -> finish()
+        //R.id.reginster_tv_agreement ->
         }
-    }
-
-    /**
-     * 跳转到验证页面
-     */
-    private fun goToVerifyActivity() {
-        mIntent.setClass(this@RegisterActivity, VerifyActivityActivity::class.java)
-        startActivity(mIntent)
     }
 
 
@@ -75,17 +70,45 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
             } else {
                 // todo 做滑动到最右的操作.
                 p0.progress = p0.max
-                checkPhone()
+                if (CommonUtils.getInstance().isMobile(reginster_et_phone.text.toString())) {
+                    //是手机号码，跳转短信验证
+                    ToastUtil.toast(this@RegisterActivity, getString(R.string.reginster_5))
+                    mHandler.sendEmptyMessageDelayed(CKey.WHAT_ONE, 2000)
+
+                } else {
+                    //提示填写手机号码
+                    ToastUtil.toast(this@RegisterActivity, getString(R.string.reginster_4))
+                    mHandler.sendEmptyMessageDelayed(CKey.WHAT_TWO, 2000)
+                }
             }
         }
     }
 
     /**
-     * 验证手机号码的正确性
+     * handler消息处理类
      */
-    private fun checkPhone() {
-        phone = reginster_et_phone.text.toString()
-        LogUtil.e("nxm", "phone" + phone)
+    private val mHandler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message?) {
+            super.handleMessage(msg)
+            if (msg != null) {
+                when (msg.what) {
+                    CKey.WHAT_ONE -> gotoVerifyActivity()
+                    CKey.WHAT_TWO -> reginster_seekbar.progress = 0
+                }
+            }
+
+        }
+    }
+
+    /**
+     *跳转到ActivityActivity界面
+     */
+    private fun gotoVerifyActivity() {
+        mIntent.setClass(this@RegisterActivity, VerifyActivityActivity::class.java)
+        mIntent.putExtra("phone", reginster_et_phone.text.toString())
+        startActivity(mIntent)
     }
 }
+
+
 

@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/px32"
+            android:layout_marginRight="@dimen/px32"
             android:layout_toRightOf="@id/login_tv_account"
             android:background="@null"
             android:hint="手机号码"

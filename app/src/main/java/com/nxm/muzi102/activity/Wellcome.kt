@@ -7,10 +7,10 @@ import android.os.Handler
 import android.os.Message
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
-import com.nxm.muzi102.comment.CKey
 import com.nxm.muzi102.comment.Constants
 import com.nxm.muzi102.permission.CheckPermission
 import com.nxm.muzi102.permission.PermissionActivity
+import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.ToastUtil
 
 /**

@@ -23,6 +23,9 @@
     <string name="reginster_1">国家/地区  中国大陆(+86)</string>
     <string name="reginster_2">为了您的方便登录及账号安全请填写一个手机号码完成注册</string>
     <string name="reginster_3">手机号码</string>
+    <string name="reginster_4">请填写正确的手机号码</string>
+    <string name="reginster_5">验证通过</string>
+
     <!--VerifyActivityActivity-->
     <string name="verify_title">填写校验码</string>
     <string name="verify_content_1">我们已经发送了验证码到您的手机：</string>
@@ -31,6 +34,8 @@
     <string name="verify_next">下 一 步</string>
     <string name="diolog_cancel">取 消</string>
     <string name="dialog_confirm">确 定</string>
+
+
     <!--AccountInfoActivity 设置账号信息-->
     <string name="accountInfo_title">设置账号信息</string>
     <string name="accountInfo_connent">密码由6-20位英文字母、数字或符号组成</string>

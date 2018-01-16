@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/main_theme</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -35,6 +35,7 @@
         <item name="android:textColor">@color/main_text</item>
         <item name="android:textSize">@dimen/px48</item>
         <item name="android:layout_marginLeft">@dimen/px48</item>
+        <item name="android:layout_marginRight">@dimen/px48</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
 
