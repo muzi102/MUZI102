@@ -105,8 +105,10 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
      */
     private fun gotoVerifyActivity() {
         mIntent.setClass(this@RegisterActivity, VerifyActivityActivity::class.java)
-        mIntent.putExtra("phone", reginster_et_phone.text.toString())
+        mIntent.putExtra(CKey.phone, reginster_et_phone.text.toString())
         startActivity(mIntent)
+        reginster_seekbar.progress = 0
+
     }
 }
 

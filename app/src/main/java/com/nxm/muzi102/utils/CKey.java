@@ -30,6 +30,10 @@ public class CKey {
      * 用户是否已登录
      */
     public static String isLogin = "isLogin";
+    /**
+     * phone
+     */
+    public static String phone = "phone";
 
 
     //Handler 消息处理类的what

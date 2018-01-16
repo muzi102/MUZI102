@@ -22,7 +22,11 @@ android {
         }
     }
 }
-
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -38,4 +42,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.githang:status-bar-compat:0.7'
+    implementation files('libs/SMSSDK-3.1.0.jar')
+    implementation files('libs/MobTools-2017.1213.1552.jar')
+    implementation files('libs/MobCommons-2017.1213.1552.jar')
 }
