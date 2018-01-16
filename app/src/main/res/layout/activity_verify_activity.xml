@@ -45,7 +45,7 @@
 
         <LinearLayout
             android:id="@+id/verify_relay2"
-            android:layout_width="@dimen/px300"
+            android:layout_width="@dimen/px360"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -55,6 +55,7 @@
 
             <TextView
                 android:id="@+id/verify_tv_time"
+                android:textSize="@dimen/px48"
                 style="@style/wh_ww" />
 
             <TextView
@@ -65,7 +66,7 @@
                 android:layout_centerVertical="true"
                 android:gravity="right"
                 android:text="@string/verify_tv_again"
-                android:textSize="@dimen/px36" />
+                android:textSize="@dimen/px48" />
         </LinearLayout>
 
         <View

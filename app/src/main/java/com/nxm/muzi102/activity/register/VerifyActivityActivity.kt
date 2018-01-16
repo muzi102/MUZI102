@@ -8,6 +8,7 @@ import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
 import com.nxm.muzi102.utils.CKey
+import com.nxm.muzi102.utils.LogUtil
 import com.nxm.muzi102.utils.SMSSDKUtil
 import com.nxm.muzi102.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_verify_activity.*
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.titlebar.*
 class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.SMSSKEventHandlerInterface {
 
     private lateinit var phone: String
+    private lateinit var mThread: Thread
     override fun getContentView(): Int {
         return R.layout.activity_verify_activity
 
@@ -44,6 +46,24 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         if (!phone.isEmpty()) {
             verify_tv_phont.text = phone
             SMSSDKUtil.getInstance().smsskEventHandlerInterface = this
+            //初始化thread
+            mThread = object : Thread() {
+                override fun run() {
+                    super.run()
+                    LogUtil.e("mThread", "toString()")
+                    for (i in 120 downTo 0) {
+                        LogUtil.e("mThread", i.toString())
+                        mHandler.obtainMessage(CKey.ZERO, i).sendToTarget()
+                        try {
+                            Thread.sleep(1000)
+                        } catch (e: InterruptedException) {
+                            e.printStackTrace()
+                            break
+                        }
+
+                    }
+                }
+            }
         } else {
             finish()
         }
@@ -66,6 +86,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
                 } else {
                     //发送验证码
                     SMSSDKUtil.getInstance().submitCode("86", phone, verify__tv_checkcode.text.toString())
+//                    mHandler.obtainMessage(CKey.WHAT_FOUR, "验证成功").sendToTarget()
                     verify_next.isEnabled = false
                 }
             }
@@ -75,6 +96,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
             R.id.verify_tv_again -> {
                 SMSSDKUtil.getInstance().sendCode("86", phone)
                 verify_tv_again.isEnabled = false
+//                mHandler.obtainMessage(CKey.WHAT_ONE, "发送成功").sendToTarget()
             }
 
         }
@@ -95,6 +117,9 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         mIntent.setClass(this@VerifyActivityActivity, AccountInfoActivity::class.java)
         startActivity(mIntent)
         mHandler.removeCallbacksAndMessages(null)
+        mHandler1.removeCallbacksAndMessages(null)
+        if (!mThread.isInterrupted)
+            mThread.interrupt()
         finish()
     }
 
@@ -104,10 +129,11 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
             if (msg != null) {
                 when (msg.what) {
                     CKey.WHAT_ONE -> {
-                        verify_tv_again.text = "秒后从新获取"
-                        verify_tv_time.text = "120"
+                        verify_tv_again.text = "秒重新获取"
                         //延迟读秒
-
+                        if (!mThread.isAlive)
+                            mThread.start()
+                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
                     }
                     CKey.WHAT_TWO -> {
                         verify_tv_again.text = "获取验证码"
@@ -115,21 +141,52 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
                         verify_next.isEnabled = true
                         verify_tv_time.text = ""
                         //重新发送
+                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
                     }
                     CKey.WHAT_THERE -> {
                         //延迟执行跳转
-                        postDelayed(Runnable {
-                            verify_tv_again.text = "获取验证码"
-                            verify_tv_time.text = ""
-                            goToAccountInfoActivity()
-                        }, 2000)
+                        mHandler1.sendEmptyMessageDelayed(CKey.WHAT_TWO, 2000)
+                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
                     }
                     CKey.WHAT_FOUR -> {
                         verify_next.isEnabled = true
+                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
+                    }
+                    CKey.ZERO -> {
+                        var time: Int = msg.obj as Int
+                        if (time > 0) {
+                            verify_tv_time.text = time.toString()
+                        } else {
+                            verify_tv_time.text = ""
+                            verify_tv_again.text = "获取验证码"
+                            verify_tv_again.isEnabled = true
+                        }
                     }
                 }
-                ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
             }
         }
+    }
+    private var mHandler1: Handler = object : Handler() {
+        override fun handleMessage(msg: Message?) {
+            super.handleMessage(msg)
+            if (msg != null) {
+                when (msg.what) {
+                    CKey.WHAT_TWO -> {
+                        verify_tv_again.text = "获取验证码"
+                        verify_tv_time.text = ""
+                        verify_next.isEnabled = true
+                        verify_tv_again.isEnabled = true
+                        goToAccountInfoActivity()
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 线程读秒
+     */
+    private fun sendMessageClick() {
+
     }
 }
