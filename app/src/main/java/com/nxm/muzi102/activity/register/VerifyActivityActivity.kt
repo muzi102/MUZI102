@@ -23,6 +23,7 @@ import java.lang.ref.WeakReference
  * 2018年1月7日23:35:51            lzx              VerifyActivityActivity布局界面
  * 2018年1月10日23:22:03           lzx              添加点击监事件
  * 2018年1月16日15:41:25           lzx              完善MOB 短信验证功能
+ * 2018年1月17日14:53:02           lzx              处理handler内存泄露问题
  * *******************************************************************************************
  */
 class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.SMSSKEventHandlerInterface {
