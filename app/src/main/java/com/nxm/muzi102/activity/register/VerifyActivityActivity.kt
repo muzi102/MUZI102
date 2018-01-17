@@ -1,18 +1,18 @@
 package com.nxm.muzi102.activity.register
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
-import com.nxm.muzi102.R.id.verify_tv_time
 import com.nxm.muzi102.activity.BaseActivity
+import com.nxm.muzi102.https.httpUtils.NetConnUtil
 import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.LogUtil
 import com.nxm.muzi102.utils.SMSSDKUtil
 import com.nxm.muzi102.utils.ToastUtil
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_verify_activity.*
 import kotlinx.android.synthetic.main.titlebar.*
 import java.lang.ref.WeakReference
@@ -27,7 +27,6 @@ import java.lang.ref.WeakReference
  * *******************************************************************************************
  */
 class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.SMSSKEventHandlerInterface {
-
     private lateinit var phone: String
     private lateinit var mThread: Thread
     private lateinit var mHandler1: Handler1
@@ -86,7 +85,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         verify_next.setOnClickListener(this)
         titlebar_back.setOnClickListener(this)
         verify_tv_again.setOnClickListener(this)
-
+        verify_line1.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -96,19 +95,28 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
                 if (verify__tv_checkcode.text.toString().isEmpty() || verify__tv_checkcode.text.toString().length != 6) {
                     ToastUtil.toast(this@VerifyActivityActivity, "请填写正确的验证码")
                 } else {
-                    //发送验证码
-                    SMSSDKUtil.getInstance().submitCode("86", phone, verify__tv_checkcode.text.toString())
-//                    mHandler.obtainMessage(CKey.WHAT_FOUR, "验证成功").sendToTarget()
-                    verify_next.isEnabled = false
+                    if (NetConnUtil.isNetworkAvailable(this@VerifyActivityActivity)) {
+                        //发送验证码
+                        SMSSDKUtil.getInstance().submitCode("86", phone, verify__tv_checkcode.text.toString())
+                        verify_next.isEnabled = false
+                    } else {
+                        ToastUtil.toastNteNeed(this@VerifyActivityActivity)
+                    }
                 }
             }
         //返回键
             R.id.titlebar_back -> finish()
         //获取验证码
             R.id.verify_tv_again -> {
-                SMSSDKUtil.getInstance().sendCode("86", phone)
-                verify_tv_again.isEnabled = false
-//                mHandler.obtainMessage(CKey.WHAT_ONE, "发送成功").sendToTarget()
+                if (NetConnUtil.isNetworkAvailable(this@VerifyActivityActivity)) {
+                    SMSSDKUtil.getInstance().sendCode("86", phone)
+                    verify_tv_again.isEnabled = false
+                } else {
+                    ToastUtil.toastNteNeed(this@VerifyActivityActivity)
+                }
+            }
+            R.id.verify_line1 -> {
+                goToAccountInfoActivity()
             }
 
         }
@@ -127,6 +135,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
 
     private fun goToAccountInfoActivity() {
         mIntent.setClass(this@VerifyActivityActivity, AccountInfoActivity::class.java)
+        mIntent.putExtra(CKey.phone, phone)
         startActivity(mIntent)
         mHandler.removeCallbacksAndMessages(null)
         mHandler1.removeCallbacksAndMessages(null)

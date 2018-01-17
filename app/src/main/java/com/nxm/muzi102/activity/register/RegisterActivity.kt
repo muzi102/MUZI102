@@ -13,6 +13,7 @@ import com.nxm.muzi102.utils.CommonUtils
 import com.nxm.muzi102.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.titlebar.*
+import java.lang.ref.WeakReference
 
 /**
  * *******************************************************************************************
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.titlebar.*
  * *******************************************************************************************
  */
 class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+    private lateinit var mHandler: Handler1
     override fun getContentView(): Int {
         return R.layout.activity_register
     }
@@ -30,7 +32,8 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
         //设置状态栏背景和字体颜色
         StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
         //初始化参数
-        titlebar_title.setText(getString(R.string.reginster_title))
+        titlebar_title.text = getString(R.string.reginster_title)
+        mHandler = Handler1(this@RegisterActivity)
         initListener()
     }
 
@@ -44,7 +47,6 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.titlebar_back -> finish()
-        //R.id.reginster_tv_agreement ->
         }
     }
 
@@ -87,16 +89,17 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
     /**
      * handler消息处理类
      */
-    private val mHandler: Handler = object : Handler() {
+    private class Handler1(activity: RegisterActivity) : Handler() {
+        private val mActivity: WeakReference<RegisterActivity> = WeakReference(activity)
+        val activity = mActivity.get()
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             if (msg != null) {
                 when (msg.what) {
-                    CKey.WHAT_ONE -> gotoVerifyActivity()
-                    CKey.WHAT_TWO -> reginster_seekbar.progress = 0
+                    CKey.WHAT_ONE -> activity!!.gotoVerifyActivity()
+                    CKey.WHAT_TWO -> activity!!.reginster_seekbar.progress = 0
                 }
             }
-
         }
     }
 

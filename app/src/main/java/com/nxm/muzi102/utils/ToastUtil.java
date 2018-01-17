@@ -13,4 +13,8 @@ public class ToastUtil {
     public static void toast(Context context, String what) {
         Toast.makeText(context, what, Toast.LENGTH_SHORT).show();
     }
+
+    public static void toastNteNeed(Context context) {
+        Toast.makeText(context, "请检查网络", Toast.LENGTH_SHORT).show();
+    }
 }
