@@ -1,11 +1,13 @@
 package com.nxm.muzi102.activity.register
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
+import com.nxm.muzi102.R.id.verify_tv_time
 import com.nxm.muzi102.activity.BaseActivity
 import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.LogUtil
@@ -13,6 +15,7 @@ import com.nxm.muzi102.utils.SMSSDKUtil
 import com.nxm.muzi102.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_verify_activity.*
 import kotlinx.android.synthetic.main.titlebar.*
+import java.lang.ref.WeakReference
 
 /**
  * *******************************************************************************************
@@ -26,15 +29,19 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
 
     private lateinit var phone: String
     private lateinit var mThread: Thread
+    private lateinit var mHandler1: Handler1
+    private lateinit var mHandler: Handler2
+
     override fun getContentView(): Int {
         return R.layout.activity_verify_activity
 
     }
 
+
     override fun onViewsDidLoad(savedInstanceState: Bundle?) {
         //设置状态栏背景和字体颜色
         StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
-        titlebar_title.setText(getString(R.string.verify_title))
+        titlebar_title.text = getString(R.string.verify_title)
         initData()
         //初始化
         initListener()
@@ -67,6 +74,10 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         } else {
             finish()
         }
+
+        //声明handler
+        mHandler1 = Handler1(this)
+        mHandler = Handler2(this)
     }
 
     //初始化监听
@@ -107,7 +118,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
      * CKey.WHAT_ONE-发送成功 ，CKey.WHAT_TWO-发送失败 ， CKey.WHAT_THERE-验证成功 ，CKey.WHAT_FOUR-验证失败
      */
     override fun SMSSDKResult(result: Int, textContent: String?) {
-        var mMessage = Message()
+        val mMessage = Message()
         mMessage.what = result
         mMessage.obj = textContent
         mHandler.sendMessage(mMessage)
@@ -123,70 +134,68 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         finish()
     }
 
-    private var mHandler: Handler = object : Handler() {
+    private class Handler2(activity: VerifyActivityActivity) : Handler() {
+        private val mActivity: WeakReference<VerifyActivityActivity> = WeakReference(activity)
+        val activity = mActivity.get()
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             if (msg != null) {
                 when (msg.what) {
                     CKey.WHAT_ONE -> {
-                        verify_tv_again.text = "秒重新获取"
+                        activity!!.verify_tv_again.text = "秒重新获取"
                         //延迟读秒
-                        if (!mThread.isAlive)
-                            mThread.start()
-                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
+                        if (!activity.mThread.isAlive)
+                            activity.mThread.start()
+                        ToastUtil.toast(activity, msg.obj as String?)
                     }
                     CKey.WHAT_TWO -> {
-                        verify_tv_again.text = "获取验证码"
-                        verify_tv_again.isEnabled = true
-                        verify_next.isEnabled = true
-                        verify_tv_time.text = ""
+                        activity!!.verify_tv_again.text = "获取验证码"
+                        activity.verify_tv_again.isEnabled = true
+                        activity.verify_next.isEnabled = true
+                        activity.verify_tv_time.text = ""
                         //重新发送
-                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
+                        ToastUtil.toast(activity, msg.obj as String?)
                     }
                     CKey.WHAT_THERE -> {
                         //延迟执行跳转
-                        mHandler1.sendEmptyMessageDelayed(CKey.WHAT_TWO, 2000)
-                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
+                        activity!!.mHandler1.sendEmptyMessageDelayed(CKey.WHAT_TWO, 2000)
+                        ToastUtil.toast(activity, msg.obj as String?)
                     }
                     CKey.WHAT_FOUR -> {
-                        verify_next.isEnabled = true
-                        ToastUtil.toast(this@VerifyActivityActivity, msg.obj as String?)
+                        activity!!.verify_next.isEnabled = true
+                        ToastUtil.toast(activity, msg.obj as String?)
                     }
                     CKey.ZERO -> {
-                        var time: Int = msg.obj as Int
+                        val time: Int = msg.obj as Int
                         if (time > 0) {
-                            verify_tv_time.text = time.toString()
+                            activity!!.verify_tv_time.text = time.toString()
                         } else {
-                            verify_tv_time.text = ""
-                            verify_tv_again.text = "获取验证码"
-                            verify_tv_again.isEnabled = true
+                            activity!!.verify_tv_time.text = ""
+                            activity.verify_tv_again.text = "获取验证码"
+                            activity.verify_tv_again.isEnabled = true
                         }
                     }
                 }
             }
         }
     }
-    private var mHandler1: Handler = object : Handler() {
+
+    private class Handler1(activity: VerifyActivityActivity) : Handler() {
+        private val mActivity: WeakReference<VerifyActivityActivity> = WeakReference(activity)
+        val activity = mActivity.get()
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             if (msg != null) {
                 when (msg.what) {
                     CKey.WHAT_TWO -> {
-                        verify_tv_again.text = "获取验证码"
-                        verify_tv_time.text = ""
-                        verify_next.isEnabled = true
-                        verify_tv_again.isEnabled = true
-                        goToAccountInfoActivity()
+                        activity!!.verify_tv_again.text = "获取验证码"
+                        activity.verify_tv_time.text = ""
+                        activity.verify_next.isEnabled = true
+                        activity.verify_tv_again.isEnabled = true
+                        activity.goToAccountInfoActivity()
                     }
                 }
             }
         }
-    }
-
-    /**
-     * 线程读秒
-     */
-    private fun sendMessageClick() {
-
     }
 }

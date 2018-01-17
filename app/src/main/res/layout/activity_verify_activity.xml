@@ -55,8 +55,8 @@
 
             <TextView
                 android:id="@+id/verify_tv_time"
-                android:textSize="@dimen/px48"
-                style="@style/wh_ww" />
+                style="@style/wh_ww"
+                android:textSize="@dimen/px48" />
 
             <TextView
                 android:id="@+id/verify_tv_again"
@@ -79,10 +79,9 @@
 
         <EditText
             android:id="@+id/verify__tv_checkcode"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/px32"
             android:layout_toLeftOf="@id/view_1"
             android:layout_toRightOf="@id/verify__tv_phone"
             android:background="@null"

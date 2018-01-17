@@ -12,6 +12,7 @@ import com.nxm.muzi102.permission.CheckPermission
 import com.nxm.muzi102.permission.PermissionActivity
 import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.ToastUtil
+import java.lang.ref.WeakReference
 
 /**
  * *******************************************************************************************
@@ -44,6 +45,7 @@ class Wellcome : BaseActivity() {
      * 初始化参数
      */
     private fun initData() {
+        handler = Handler1(this)
         //设置状态栏背景和字体颜色
         StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
         //初始化myThread
@@ -53,15 +55,7 @@ class Wellcome : BaseActivity() {
                 handler.sendEmptyMessageDelayed(Constants.ZERO, 2000)
             }
         }
-        //初始化handler
-        handler = object : Handler() {
-            override fun handleMessage(msg: Message?) {
-                super.handleMessage(msg)
-                if (msg?.what == Constants.ZERO) {
-                    checkPermission()
-                }
-            }
-        }
+
     }
 
     override fun onResume() {
@@ -87,7 +81,7 @@ class Wellcome : BaseActivity() {
      * 跳转到主界面
      */
     private fun gotoMainActivity() {
-        var intent = Intent()
+        val intent = Intent()
         intent.setClass(this@Wellcome, MainActivity::class.java)
         startActivity(intent)
     }
@@ -139,5 +133,17 @@ class Wellcome : BaseActivity() {
     private fun goLoginActivity() {
         goToLoginActivity()
         finish()
+    }
+
+    //初始化handler
+    private class Handler1(activity: Wellcome) : Handler() {
+        private val mActivity: WeakReference<Wellcome> = WeakReference(activity)
+        val activity = mActivity.get()
+        override fun handleMessage(msg: Message?) {
+            super.handleMessage(msg)
+            if (msg?.what == Constants.ZERO) {
+                activity!!.checkPermission()
+            }
+        }
     }
 }
