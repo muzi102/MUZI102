@@ -12,7 +12,6 @@ import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.LogUtil
 import com.nxm.muzi102.utils.SMSSDKUtil
 import com.nxm.muzi102.utils.ToastUtil
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_verify_activity.*
 import kotlinx.android.synthetic.main.titlebar.*
 import java.lang.ref.WeakReference
@@ -42,8 +41,8 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         //设置状态栏背景和字体颜色
         StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
         titlebar_title.text = getString(R.string.verify_title)
-        initData()
         //初始化
+        initData()
         initListener()
     }
 
@@ -74,7 +73,6 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         } else {
             finish()
         }
-
         //声明handler
         mHandler1 = Handler1(this)
         mHandler = Handler2(this)

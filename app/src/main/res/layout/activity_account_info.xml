@@ -21,13 +21,17 @@
         android:layout_below="@id/accountInfo_1">
 
         <TextView
+            android:id="@+id/textView"
             style="@style/login_account"
             android:text="@string/password" />
 
         <EditText
             android:id="@+id/accountInfo_password"
             style="@style/login_account1"
-            android:hint="@string/string_2" />
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:hint="@string/string_2"
+            android:maxLines="1" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -51,12 +55,13 @@
 
         <TextView
             style="@style/login_account"
-            android:text="会员名" />
+            android:text="@string/accountInfo_huiyuan" />
 
         <EditText
             android:id="@+id/accountInfo_name"
             style="@style/login_account1"
-            android:hint="5-20个字符" />
+            android:hint="@string/accountInfo_huiyuan1"
+            android:maxLines="1" />
     </RelativeLayout>
 
     <View
@@ -79,7 +84,7 @@
             android:textSize="@dimen/px36" />
 
         <Button
-            android:id="@+id/accountInfo_btn_login"
+            android:id="@+id/accountInfo_btn_confirm"
             style="@style/login_btn_login"
             android:layout_below="@id/accountInfo_7"
             android:layout_marginTop="@dimen/px96"

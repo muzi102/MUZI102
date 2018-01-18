@@ -25,6 +25,8 @@
     <string name="reginster_3">手机号码</string>
     <string name="reginster_4">请填写正确的手机号码</string>
     <string name="reginster_5">验证通过</string>
+    <string name="reginster_text_slide">滑动验证</string>
+    <string name="verify_tv_again">获取验证码</string>
 
     <!--VerifyActivityActivity-->
     <string name="verify_title">填写校验码</string>
@@ -38,10 +40,15 @@
 
     <!--AccountInfoActivity 设置账号信息-->
     <string name="accountInfo_title">设置账号信息</string>
-    <string name="accountInfo_connent">密码由6-20位英文字母、数字或符号组成</string>
-    <string name="accountInfo_connetn2">1.会员名可用于账号登录\n2.推荐5-25个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
+    <string name="accountInfo_connent">密码由6-16位英文字母、数字或符号组成</string>
+    <string name="accountInfo_connetn2">1.会员名可用于账号登录\n2
+        .推荐5-16个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
+    <string name="accountInfo_huiyuan">会员名</string>
+    <string name="accountInfo_huiyuan1">5-16个字符</string>
+    <string name="accountInfo_no_paw">密码格式不正确</string>
+    <string name="accountInfo_no_huiyuan">会员名长度不符合</string>
+    <string name="accountInfo_succeed">注册成功</string>
 
-    <string name="reginster_text_slide">滑动验证</string>
-    <string name="verify_tv_again">获取验证码</string>
+
 </resources>
 

@@ -5,9 +5,8 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
-import com.nxm.muzi102.utils.CKey
-import com.nxm.muzi102.utils.LogUtil
-import com.nxm.muzi102.utils.SMSSDKUtil
+import com.nxm.muzi102.utils.*
+import kotlinx.android.synthetic.main.activity_account_info.*
 import kotlinx.android.synthetic.main.activity_verify_activity.*
 import kotlinx.android.synthetic.main.titlebar.*
 
@@ -27,8 +26,11 @@ class AccountInfoActivity : BaseActivity(), View.OnClickListener {
         //设置状态栏背景和字体颜色
         StatusBarCompat.setStatusBarColor(this, resources.getColor(R.color.colorWhite), true)
         titlebar_title.text = getString(R.string.accountInfo_title)
+        //初始化
         initData()
+        initListener()
     }
+
 
     private fun initData() {
         phone = intent.getStringExtra(CKey.phone)
@@ -37,8 +39,26 @@ class AccountInfoActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(p0: View?) {
-
+    private fun initListener() {
+        accountInfo_btn_confirm.setOnClickListener(this)
     }
+
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.accountInfo_btn_confirm -> {
+                if (!CommonUtils.getInstance().isPassword(accountInfo_password.text.toString())) {
+                    ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_no_paw))
+                    return
+                }
+                if (!CommonUtils.getInstance().isPassword(accountInfo_name.text.toString())) {
+                    ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_no_huiyuan))
+                    return
+                }
+                //提交注册 phone password huiyuanName
+                ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_succeed))
+            }
+        }
+    }
+
 
 }

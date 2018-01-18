@@ -28,7 +28,8 @@
             android:id="@+id/login_account"
             style="@style/login_account1"
             android:focusable="true"
-            android:hint="@string/string_1" />
+            android:hint="@string/string_1"
+            android:maxLines="1" />
     </RelativeLayout>
 
     <View
@@ -49,7 +50,8 @@
         <EditText
             android:id="@+id/login_password"
             style="@style/login_account1"
-            android:hint="@string/string_2" />
+            android:hint="@string/string_2"
+            android:maxLines="1" />
     </RelativeLayout>
 
     <View

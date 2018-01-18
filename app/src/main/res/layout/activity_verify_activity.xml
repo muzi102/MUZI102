@@ -86,6 +86,8 @@
             android:layout_toRightOf="@id/verify__tv_phone"
             android:background="@null"
             android:hint="@string/verify_checkcode"
+            android:inputType="number"
+            android:maxLines="1"
             android:textCursorDrawable="@null" />
     </RelativeLayout>
 

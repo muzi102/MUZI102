@@ -41,4 +41,28 @@ public class CommonUtils {
             return number.matches(num);
         }
     }
+
+    /**
+     * 验证密码格式
+     */
+    public boolean isPassword(String password) {
+        String num = "^(?![A-Z]+$)(?![a-z]+$)(?!\\d+$)(?![\\W_]+$)\\S{6,16}$";
+        if (TextUtils.isEmpty(password) || password.length() < 6) {
+            return false;
+        } else {
+            //matches():字符串是否在给定的正则表达式匹配
+            return password.matches(num);
+        }
+    }
+
+    /**
+     * 会员名称长度验证
+     */
+    public boolean isHuiYuan(String password) {
+        if (TextUtils.isEmpty(password) || password.length() < 5 || password.length() > 16) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
