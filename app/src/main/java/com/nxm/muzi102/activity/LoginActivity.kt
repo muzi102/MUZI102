@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.titlebar.*
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月6日00:18:22             lzx              loginActivity布局界面
  * 2018年1月8日13:39:59             LZX               修复Thread线程问题
+ * 我的
  * *******************************************************************************************
  */
 class LoginActivity : BaseActivity(), View.OnClickListener {
