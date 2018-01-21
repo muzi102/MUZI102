@@ -41,10 +41,10 @@
     <!--AccountInfoActivity 设置账号信息-->
     <string name="accountInfo_title">设置账号信息</string>
     <string name="accountInfo_connent">密码由6-16位英文字母、数字或符号组成</string>
-    <string name="accountInfo_connetn2">1.会员名可用于账号登录\n2
-        .推荐5-16个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
-    <string name="accountInfo_huiyuan">会员名</string>
-    <string name="accountInfo_huiyuan1">5-16个字符</string>
+    <string name="accountInfo_connetn2">1.密码可用于账号登录\n2
+        .推荐6-16个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
+    <string name="accountInfo_huiyuan">确认密码</string>
+    <string name="accountInfo_huiyuan1">再次输入密码</string>
     <string name="accountInfo_no_paw">密码格式不正确</string>
     <string name="accountInfo_no_huiyuan">会员名长度不符合</string>
     <string name="accountInfo_succeed">注册成功</string>

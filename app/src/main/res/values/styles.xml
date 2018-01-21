@@ -30,6 +30,7 @@
     </style>
 
     <style name="login_account">
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/main_text</item>
@@ -40,6 +41,9 @@
     </style>
 
     <style name="login_account1">
+
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_weight">5</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/gray_text</item>
@@ -59,6 +63,8 @@
     </style>
     <!--通用-->
     <style name="convention_item">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="android:layout_height">@dimen/px145</item>
         <item name="android:layout_width">match_parent</item>
     </style>

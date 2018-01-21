@@ -5,9 +5,10 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
-import com.nxm.muzi102.utils.*
+import com.nxm.muzi102.utils.CKey
+import com.nxm.muzi102.utils.CommonUtils
+import com.nxm.muzi102.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_account_info.*
-import kotlinx.android.synthetic.main.activity_verify_activity.*
 import kotlinx.android.synthetic.main.titlebar.*
 
 /**

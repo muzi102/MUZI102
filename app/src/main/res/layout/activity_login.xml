@@ -14,7 +14,7 @@
         style="@style/interval_16"
         android:layout_below="@id/layout1"></View>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relay1"
         style="@style/convention_item"
         android:layout_below="@id/view_1">
@@ -29,15 +29,15 @@
             style="@style/login_account1"
             android:focusable="true"
             android:hint="@string/string_1"
-            android:maxLines="1" />
-    </RelativeLayout>
+           />
+    </LinearLayout>
 
     <View
         android:id="@+id/view_2"
         style="@style/interval_2"
         android:layout_below="@id/relay1"></View>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relay2"
         style="@style/convention_item"
         android:layout_below="@id/view_2">
@@ -51,8 +51,8 @@
             android:id="@+id/login_password"
             style="@style/login_account1"
             android:hint="@string/string_2"
-            android:maxLines="1" />
-    </RelativeLayout>
+          />
+    </LinearLayout>
 
     <View
         android:id="@+id/view_3"

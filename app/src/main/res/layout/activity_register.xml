@@ -48,8 +48,7 @@
 
         <EditText
             android:id="@+id/reginster_et_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+         style="@style/wh_mw"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/px32"
             android:layout_marginRight="@dimen/px32"
