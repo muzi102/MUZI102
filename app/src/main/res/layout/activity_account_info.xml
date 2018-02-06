@@ -27,9 +27,8 @@
 
         <EditText
             android:id="@+id/accountInfo_password"
-            style="@style/login_account1"
-            android:hint="@string/string_2"
-           />
+            style="@style/login_pwd"
+            android:hint="@string/string_2" />
     </LinearLayout>
 
     <RelativeLayout
@@ -56,10 +55,9 @@
             android:text="@string/accountInfo_huiyuan" />
 
         <EditText
-            android:id="@+id/accountInfo_name"
-            style="@style/login_account1"
-            android:hint="@string/accountInfo_huiyuan1"
-          />
+            android:id="@+id/accountInfo_pwd_again"
+            style="@style/login_pwd"
+            android:hint="@string/accountInfo_huiyuan1" />
     </LinearLayout>
 
     <View

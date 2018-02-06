@@ -47,12 +47,12 @@ class AccountInfoActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.accountInfo_btn_confirm -> {
-                if (!CommonUtils.getInstance().isPassword(accountInfo_password.text.toString())) {
+                if (!CommonUtils.getInstance().isPassword(accountInfo_password.text.toString().trim())) {
                     ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_no_paw))
                     return
                 }
-                if (!CommonUtils.getInstance().isPassword(accountInfo_name.text.toString())) {
-                    ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_no_huiyuan))
+                if (accountInfo_pwd_again.text.toString().trim() != accountInfo_password.text.toString().trim()) {
+                    ToastUtil.toast(this@AccountInfoActivity, getString(R.string.accountInfo_no_same))
                     return
                 }
                 //提交注册 phone password huiyuanName

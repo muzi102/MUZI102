@@ -41,7 +41,6 @@
     </style>
 
     <style name="login_account1">
-
         <item name="android:maxLines">1</item>
         <item name="android:layout_weight">5</item>
         <item name="android:layout_height">wrap_content</item>
@@ -52,6 +51,10 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:minWidth">@dimen/px252</item>
+    </style>
+
+    <style name="login_pwd" parent="@style/login_account1">
+        <item name="android:digits">@string/accountInfo_able_pwd</item>
     </style>
 
     <style name="login_btn_login">

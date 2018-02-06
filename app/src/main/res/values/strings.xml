@@ -15,7 +15,7 @@
     <string name="forgetPsw">忘记密码？</string>
     <string name="login_btn_login">登 录</string>
     <string name="login_btn_register">免费注册</string>
-    <string name="string_1">手机号码/会员名称</string>
+    <string name="phone">手机号码</string>
     <string name="string_2">请输入密码</string>
     <string name="login_title">账号登录</string>
     <!--RegisterActivity-->
@@ -40,14 +40,15 @@
 
     <!--AccountInfoActivity 设置账号信息-->
     <string name="accountInfo_title">设置账号信息</string>
-    <string name="accountInfo_connent">密码由6-16位英文字母、数字或符号组成</string>
-    <string name="accountInfo_connetn2">1.密码可用于账号登录\n2
+    <string name="accountInfo_connent">由6-16位英文字母、数字或@.组合</string>
+    <string name="accountInfo_connetn2">1.密码可用于账号登录(两种以上格式)\n2
         .推荐6-16个字符长度中文，请务包含姓名/身份证/银行卡等隐私信息，可用于登录或者找回密码使用</string>
     <string name="accountInfo_huiyuan">确认密码</string>
     <string name="accountInfo_huiyuan1">再次输入密码</string>
     <string name="accountInfo_no_paw">密码格式不正确</string>
-    <string name="accountInfo_no_huiyuan">会员名长度不符合</string>
+    <string name="accountInfo_no_same">密码不一致</string>
     <string name="accountInfo_succeed">注册成功</string>
+    <string name="accountInfo_able_pwd">0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.</string>
 
 
 </resources>
