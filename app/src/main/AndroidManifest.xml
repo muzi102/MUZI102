@@ -69,7 +69,7 @@
             android:value="267c3db84c228a3c01d35c4d3b2958f0" />
 
         <activity
-            android:name=".activity.register.forgetpwd.AccountCenterActivity"
+            android:name=".activity.forgetpwd.AccountCenterActivity"
             android:label="@string/title_activity_account_center"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

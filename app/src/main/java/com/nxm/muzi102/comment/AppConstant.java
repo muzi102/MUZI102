@@ -7,6 +7,10 @@ package com.nxm.muzi102.comment;
  */
 public class AppConstant {
     /**
+     * 默认为-1
+     */
+    public static final int NOT = -1;
+    /**
      * 默认为0
      */
     public static final int ZERO = 0;
@@ -56,7 +60,10 @@ public class AppConstant {
     public static final String N = "N";
     public static final String Y = "Y";
 
-
+    /**
+     * 字符串key
+     */
+    public static final String PHONE = "phone";
     /**
      * 空字符串
      */
@@ -64,10 +71,8 @@ public class AppConstant {
     /**
      * 规则
      */
-    public static final String RULE = "rule";
-    public static final String INTENT_POST_DATE = "postDate";
-    public static final String INTENT_TITLE = "title";
-    public static final String RIGHT_TITLE = "right_title";
+    public static final String TYPE = "type";
+
     /**
      * 斜杠字符串
      */

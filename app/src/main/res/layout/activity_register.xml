@@ -78,13 +78,7 @@
 
             <com.nxm.muzi102.view.VerificationSeekBar
                 android:id="@+id/reginster_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px129"
-                android:max="100"
-                android:progress="0"
-                android:progressDrawable="@drawable/bg_forgotpassword_seekbar"
-                android:thumb="@drawable/seekbart_humb"
-                android:thumbOffset="@dimen/px0" />
+                style="@style/v_SeekBar" />
 
             <TextView
                 android:id="@+id/reginster_text_slide"

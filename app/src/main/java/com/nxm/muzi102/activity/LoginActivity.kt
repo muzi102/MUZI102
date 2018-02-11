@@ -7,7 +7,9 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.register.RegisterActivity
-import com.nxm.muzi102.activity.register.forgetpwd.AccountCenterActivity
+import com.nxm.muzi102.activity.forgetpwd.AccountCenterActivity
+import com.nxm.muzi102.comment.AppConstant
+import com.nxm.muzi102.utils.LogUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.titlebar.*
 
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.titlebar.*
  * *******************************************************************************************
  */
 class LoginActivity : BaseActivity(), View.OnClickListener {
+    private val TAG: String = "LoginActivity"
     override fun getContentView(): Int {
         return R.layout.activity_login
     }
@@ -43,6 +46,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
      */
     private fun initOnClick() {
         login_btn_register.setOnClickListener(this)
+        login_forget_psw.setOnClickListener(this)
     }
 
     /**
@@ -52,8 +56,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         when (p0?.id) {
             R.id.login_btn_register ->
                 goToRegister()
-            R.id.login_forgetPsw -> {
-                AccountCenterActivity.actionStart(this)
+            R.id.login_forget_psw -> {
+                AccountCenterActivity.Companion.actionStart(this@LoginActivity, AppConstant.ONE)
+                LogUtil.e(TAG, "执行了")
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.nxm.muzi102.activity.register
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
@@ -7,6 +9,8 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
+import com.nxm.muzi102.activity.forgetpwd.AccountCenterActivity
+import com.nxm.muzi102.comment.AppConstant
 import com.nxm.muzi102.https.httpUtils.NetConnUtil
 import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.LogUtil
@@ -17,6 +21,7 @@ import kotlinx.android.synthetic.main.titlebar.*
 import java.lang.ref.WeakReference
 
 /**
+ * 短信验证界面
  * *******************************************************************************************
  * 修改日期                         修改人             任务名称                         功能或Bug描述
  * 2018年1月7日23:35:51            lzx              VerifyActivityActivity布局界面
@@ -26,10 +31,22 @@ import java.lang.ref.WeakReference
  * *******************************************************************************************
  */
 class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.SMSSKEventHandlerInterface {
+    //传递过来的参数 AppConstant.ONT:注册验证 AppConstant.TWO 修改密码验证
+    companion object {
+        fun actionStart(context: Context, type: Int, phone: String) {
+            var intent = Intent(context, VerifyActivityActivity::class.java)
+            intent.putExtra(AppConstant.TYPE, type)
+            intent.putExtra(AppConstant.PHONE, phone)
+            context.startActivity(intent)
+        }
+    }
+
     private lateinit var phone: String
+    private var type: Int = AppConstant.NOT
     private lateinit var mThread: Thread
     private lateinit var mHandler1: Handler1
-    private lateinit var mHandler: Handler2
+    private lateinit var mHandler2: Handler2
+
 
     override fun getContentView(): Int {
         return R.layout.activity_verify_activity
@@ -48,6 +65,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
     //初始参数
     private fun initData() {
         phone = intent.getStringExtra(CKey.phone)
+        type = intent.getIntExtra(AppConstant.TYPE, AppConstant.NOT)
         if (!phone.isEmpty()) {
             verify_tv_phont.text = phone
             SMSSDKUtil.getInstance().smsskEventHandlerInterface = this
@@ -55,10 +73,9 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
             mThread = object : Thread() {
                 override fun run() {
                     super.run()
-                    LogUtil.e("mThread", "toString()")
                     for (i in 120 downTo 0) {
                         LogUtil.e("mThread", i.toString())
-                        mHandler.obtainMessage(CKey.ZERO, i).sendToTarget()
+                        mHandler2.obtainMessage(CKey.ZERO, i).sendToTarget()
                         try {
                             Thread.sleep(1000)
                         } catch (e: InterruptedException) {
@@ -74,7 +91,7 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         }
         //声明handler
         mHandler1 = Handler1(this)
-        mHandler = Handler2(this)
+        mHandler2 = Handler2(this)
     }
 
     //初始化监听
@@ -127,14 +144,15 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
         val mMessage = Message()
         mMessage.what = result
         mMessage.obj = textContent
-        mHandler.sendMessage(mMessage)
+        mMessage.arg1 = type
+        mHandler2.sendMessage(mMessage)
     }
 
     private fun goToAccountInfoActivity() {
         mIntent.setClass(this@VerifyActivityActivity, AccountInfoActivity::class.java)
         mIntent.putExtra(CKey.phone, phone)
         startActivity(mIntent)
-        mHandler.removeCallbacksAndMessages(null)
+        mHandler2.removeCallbacksAndMessages(null)
         mHandler1.removeCallbacksAndMessages(null)
         if (!mThread.isInterrupted)
             mThread.interrupt()
@@ -165,7 +183,10 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
                     }
                     CKey.WHAT_THERE -> {
                         //延迟执行跳转
-                        activity!!.mHandler1.sendEmptyMessageDelayed(CKey.WHAT_TWO, 2000)
+                        var message = Message()
+                        message.what = CKey.WHAT_TWO
+                        message.obj = msg.arg1
+                        activity!!.mHandler1.sendMessageDelayed(message, 2000)
                         ToastUtil.toast(activity, msg.obj as String?)
                     }
                     CKey.WHAT_FOUR -> {
@@ -199,7 +220,12 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
                         activity.verify_tv_time.text = ""
                         activity.verify_next.isEnabled = true
                         activity.verify_tv_again.isEnabled = true
-                        activity.goToAccountInfoActivity()
+                        if (msg.obj == AppConstant.ONE) {
+                            //填写账号信息
+                            activity.goToAccountInfoActivity()
+                        } else if (msg.obj == AppConstant.TWO) {
+                            //重置密码
+                        }
                     }
                 }
             }

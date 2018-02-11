@@ -35,7 +35,6 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
         return resources;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏

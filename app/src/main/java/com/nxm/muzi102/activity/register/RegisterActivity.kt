@@ -8,6 +8,7 @@ import android.widget.SeekBar
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
+import com.nxm.muzi102.comment.AppConstant
 import com.nxm.muzi102.utils.CKey
 import com.nxm.muzi102.utils.CommonUtils
 import com.nxm.muzi102.utils.ToastUtil
@@ -103,14 +104,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
     }
 
     /**
-     *跳转到ActivityActivity界面
+     *跳转到VerifyActivity界面
      */
     private fun gotoVerifyActivity() {
-        mIntent.setClass(this@RegisterActivity, VerifyActivityActivity::class.java)
-        mIntent.putExtra(CKey.phone, reginster_et_phone.text.toString())
-        startActivity(mIntent)
+        VerifyActivityActivity.Companion.actionStart(this@RegisterActivity, AppConstant.ONE, reginster_et_phone.text.toString())
         reginster_seekbar.progress = 0
-
     }
 }
 
