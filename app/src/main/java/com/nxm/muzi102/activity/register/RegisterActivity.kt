@@ -50,7 +50,6 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, SeekBar.OnSeekBar
         }
     }
 
-
     /**
      * seekBar监听
      */

@@ -19,7 +19,6 @@ import java.util.Map;
 public class MyApplication extends Application {
     public static ArrayMap<String, Activity> map = new ArrayMap();
 
-
     @Override
     public void onCreate() {
         super.onCreate();

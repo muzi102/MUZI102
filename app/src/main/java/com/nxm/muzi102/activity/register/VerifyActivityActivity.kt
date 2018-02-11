@@ -33,7 +33,6 @@ class VerifyActivityActivity : BaseActivity(), View.OnClickListener, SMSSDKUtil.
 
     override fun getContentView(): Int {
         return R.layout.activity_verify_activity
-
     }
 
 

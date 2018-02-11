@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nxm.muzi102.activity.register.forgetpwd.AccountCenterActivity">
+
+    <com.nxm.muzi102.view.TitleLayout
+        android:id="@+id/account_c_title"
+        style="@style/title" />
+
+    <View
+        android:id="@+id/view_1"
+        style="@style/interval_16"
+        android:layout_below="@id/account_c_title" />
+
+    <LinearLayout
+        android:id="@+id/relay1"
+        style="@style/convention_item"
+        android:layout_below="@id/view_1">
+
+        <TextView
+            style="@style/login_account"
+            android:text="@string/account" />
+
+        <EditText
+            android:id="@+id/account_edit"
+            style="@style/login_account1"
+            android:focusable="true"
+            android:hint="@string/phone"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <RelativeLayout
+        style="@style/re_bg"
+        android:layout_below="@id/relay1">
+
+        <com.nxm.muzi102.view.VerificationSeekBar
+            android:id="@+id/reginster_seekbar"
+            style="@style/v_SeekBar"
+            android:layout_marginTop="@dimen/px16" />
+    </RelativeLayout>
+</RelativeLayout>

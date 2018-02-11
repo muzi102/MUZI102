@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     tools:context="com.nxm.muzi102.activity.register.VerifyActivityActivity">
 
-    <include
-        android:id="@+id/layout1"
-        layout="@layout/titlebar"></include>
+    <com.nxm.muzi102.view.TitleLayout
+        android:id="@+id/verify_title"
+        style="@style/title"></com.nxm.muzi102.view.TitleLayout>
 
     <LinearLayout
         android:id="@+id/verify_line1"
         style="@style/convention_item"
         android:layout_height="@dimen/px252"
-        android:layout_below="@id/layout1"
+        android:layout_below="@id/verify_title"
         android:background="@color/gray_bg"
         android:orientation="vertical">
 

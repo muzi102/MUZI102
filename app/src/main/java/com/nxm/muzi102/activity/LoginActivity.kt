@@ -1,10 +1,13 @@
 package com.nxm.muzi102.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.register.RegisterActivity
+import com.nxm.muzi102.activity.register.forgetpwd.AccountCenterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.titlebar.*
 
@@ -49,6 +52,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         when (p0?.id) {
             R.id.login_btn_register ->
                 goToRegister()
+            R.id.login_forgetPsw -> {
+                AccountCenterActivity.actionStart(this)
+            }
         }
     }
 
@@ -58,5 +64,12 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     private fun goToRegister() {
         mIntent.setClass(this@LoginActivity, RegisterActivity::class.java)
         startActivity(mIntent)
+    }
+
+    companion object {
+        fun actionStart(context: Context) {
+            var intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 }

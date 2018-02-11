@@ -10,6 +10,8 @@ import android.view.Window;
 
 import com.githang.statusbar.StatusBarCompat;
 import com.nxm.muzi102.R;
+import com.nxm.muzi102.application.MyApplication;
+import com.nxm.muzi102.comment.AppConstant;
 import com.nxm.muzi102.listener.ActivityInitListener;
 
 /**
@@ -21,6 +23,8 @@ import com.nxm.muzi102.listener.ActivityInitListener;
 public abstract class BaseActivity extends FragmentActivity implements ActivityInitListener {
     //受保护的对象
     protected Intent mIntent;
+    private String key = null;
+
     @Override
     public Resources getResources() {
         Resources resources = super.getResources();
@@ -44,6 +48,10 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
         } catch (Exception e) {
             e.getStackTrace();
         }
+        //添加到Activity管理
+        String name = this.toString();
+        key = name.substring(0, name.indexOf(AppConstant.AT));
+        MyApplication.map.put(key, this);
     }
 
     @Override
@@ -64,11 +72,11 @@ public abstract class BaseActivity extends FragmentActivity implements ActivityI
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        MyApplication.map.remove(key);
     }
 
     //跳转到登录界面
     protected void goToLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        LoginActivity.Companion.actionStart(this);
     }
 }

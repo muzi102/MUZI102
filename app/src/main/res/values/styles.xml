@@ -16,6 +16,31 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--通用++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <style name="wh_mm">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="wh_mw">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="wh_wm">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="wh_ww">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="title">
+        <item name="android:layout_height">@dimen/px123</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
 
     <style name="interval_16">
         <item name="android:layout_height">@dimen/px16</item>
@@ -32,25 +57,25 @@
     <style name="login_account">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">@dimen/px0</item>
         <item name="android:textColor">@color/main_text</item>
         <item name="android:textSize">@dimen/px48</item>
         <item name="android:layout_marginLeft">@dimen/px48</item>
-        <item name="android:layout_marginRight">@dimen/px48</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
 
     <style name="login_account1">
         <item name="android:maxLines">1</item>
-        <item name="android:layout_weight">5</item>
+        <item name="android:layout_weight">3</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">@dimen/px0</item>
         <item name="android:textColor">@color/gray_text</item>
         <item name="android:textSize">@dimen/px48</item>
         <item name="android:background">@null</item>
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:layout_centerInParent">true</item>
-        <item name="android:minWidth">@dimen/px252</item>
+        <item name="android:layout_marginLeft">@dimen/px16</item>
+        <item name="android:minWidth">@dimen/px195</item>
     </style>
 
     <style name="login_pwd" parent="@style/login_account1">
@@ -72,6 +97,16 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
+    <style name="v_SeekBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/px129</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">0</item>
+        <item name="android:progressDrawable">@drawable/bg_forgotpassword_seekbar</item>
+        <item name="android:thumb">@drawable/seekbart_humb</item>
+        <item name="android:thumbOffset">@dimen/px0</item>
+    </style>
+
     <style name="re_bg">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
@@ -85,26 +120,5 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/main_text</item>
     </style>
-    <!--通用-->
-    <style name="wh_mm">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="wh_mw">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="wh_wm">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">wrap_content</item>
-    </style>
-
-    <style name="wh_ww">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-    </style>
-
 
 </resources>

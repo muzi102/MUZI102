@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     tools:context="com.nxm.muzi102.activity.register.AccountInfoActivity">
 
-    <include
-        android:id="@+id/accountInfo"
-        layout="@layout/titlebar"></include>
+    <com.nxm.muzi102.view.TitleLayout
+        android:id="@+id/accountInfo_title"
+        style="@style/title"></com.nxm.muzi102.view.TitleLayout>
 
     <View
         android:id="@+id/accountInfo_1"
         style="@style/interval_16"
         android:layout_height="@dimen/px72"
-        android:layout_below="@id/accountInfo"></View>
+        android:layout_below="@id/accountInfo_title"></View>
 
     <LinearLayout
         android:id="@+id/accountInfo_2"

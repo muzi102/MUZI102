@@ -5,23 +5,23 @@
     android:layout_height="match_parent"
     tools:context="com.nxm.muzi102.activity.register.RegisterActivity">
 
-    <include
-        android:id="@+id/reginster_layout1"
-        layout="@layout/titlebar"></include>
+    <com.nxm.muzi102.view.TitleLayout
+        android:id="@+id/reginster_title"
+        style="@style/title" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/reginster_relay1"
         style="@style/convention_item"
-        android:layout_below="@id/reginster_layout1"
+        android:layout_below="@id/reginster_title"
         android:background="@color/gray_bg">
 
         <TextView
             style="@style/login_account"
             android:text="@string/reginster_2"
             android:textSize="@dimen/px36" />
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/reginster_relay2"
         style="@style/convention_item"
         android:layout_below="@id/reginster_relay1">
@@ -29,12 +29,12 @@
         <TextView
             style="@style/login_account"
             android:text="@string/reginster_1" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <View
         android:id="@+id/view_2"
         style="@style/interval_2"
-        android:layout_below="@id/reginster_relay2"></View>
+        android:layout_below="@id/reginster_relay2" />
 
     <RelativeLayout
         android:id="@+id/reginster_relay3"
@@ -48,7 +48,7 @@
 
         <EditText
             android:id="@+id/reginster_et_phone"
-         style="@style/wh_mw"
+            style="@style/wh_mw"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/px32"
             android:layout_marginRight="@dimen/px32"
@@ -63,7 +63,7 @@
     <View
         android:id="@+id/view_3"
         style="@style/interval_2"
-        android:layout_below="@id/reginster_relay3"></View>
+        android:layout_below="@id/reginster_relay3" />
 
     <RelativeLayout
         android:id="@+id/reginster_relay4"
@@ -92,30 +92,6 @@
                 android:layout_centerInParent="true"
                 android:text="@string/reginster_text_slide" />
         </RelativeLayout>
-
-        <!--<RelativeLayout-->
-        <!--android:id="@+id/reginster_relay5"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/px129">-->
-
-        <!--<TextView-->
-        <!--style="@style/wh_mm"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:text="滑动验证" />-->
-
-        <!--<com.nxm.muzi102.view.VerificationSeekBar-->
-        <!--android:id="@+id/reginster_seekbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/px129"-->
-        <!--android:layout_marginTop="@dimen/px72"-->
-        <!--android:max="100"-->
-        <!--android:padding="1dp"-->
-        <!--android:progress="0"-->
-        <!--android:progressDrawable="@drawable/bg_forgotpassword_seekbar"-->
-        <!--android:thumb="@drawable/seekbarthumb"-->
-        <!--android:thumbOffset="-1dp" />-->
-        <!--</RelativeLayout>-->
-
 
         <LinearLayout
             android:layout_width="match_parent"

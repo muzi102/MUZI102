@@ -49,5 +49,9 @@
     <string name="accountInfo_no_same">密码不一致</string>
     <string name="accountInfo_succeed">注册成功</string>
     <string name="accountInfo_able_pwd">0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.</string>
+    <string name="title_activity_account_center">AccountCenter</string>
+    <!--账号中心-->
+    <string name="accountCenter_title">快查 | 账号中心</string>
+
 </resources>
 
