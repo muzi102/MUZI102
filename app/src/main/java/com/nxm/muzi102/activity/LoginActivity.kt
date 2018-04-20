@@ -7,8 +7,6 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.register.RegisterActivity
-import com.nxm.muzi102.activity.forgetpwd.AccountCenterActivity
-import com.nxm.muzi102.comment.AppConstant
 import com.nxm.muzi102.utils.LogUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.titlebar.*
@@ -18,7 +16,6 @@ import kotlinx.android.synthetic.main.titlebar.*
  * 修改日期                         修改人             任务名称                 功能或Bug描述
  * 2018年1月6日00:18:22             lzx              loginActivity布局界面
  * 2018年1月8日13:39:59             LZX               修复Thread线程问题
- * 我的
  * *******************************************************************************************
  */
 class LoginActivity : BaseActivity(), View.OnClickListener {
@@ -57,7 +54,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             R.id.login_btn_register ->
                 goToRegister()
             R.id.login_forget_psw -> {
-                AccountCenterActivity.Companion.actionStart(this@LoginActivity, AppConstant.ONE)
+//                AccountCenterActivity.Companion.actionStart(this@LoginActivity, AppConstant.ONE)
                 LogUtil.e(TAG, "执行了")
             }
         }

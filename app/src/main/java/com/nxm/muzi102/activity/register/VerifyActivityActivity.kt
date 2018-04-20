@@ -9,7 +9,6 @@ import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.nxm.muzi102.R
 import com.nxm.muzi102.activity.BaseActivity
-import com.nxm.muzi102.activity.forgetpwd.AccountCenterActivity
 import com.nxm.muzi102.comment.AppConstant
 import com.nxm.muzi102.https.httpUtils.NetConnUtil
 import com.nxm.muzi102.utils.CKey
