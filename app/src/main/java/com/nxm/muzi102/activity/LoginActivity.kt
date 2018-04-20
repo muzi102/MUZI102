@@ -56,6 +56,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             R.id.login_forget_psw -> {
 //                AccountCenterActivity.Companion.actionStart(this@LoginActivity, AppConstant.ONE)
                 LogUtil.e(TAG, "执行了")
+                //不会否认
             }
         }
     }
